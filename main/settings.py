@@ -1,5 +1,3 @@
-
-
 from pathlib import Path
 import os
 
@@ -30,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'book',
+    'phone_app',
 ]
 
 MIDDLEWARE = [
