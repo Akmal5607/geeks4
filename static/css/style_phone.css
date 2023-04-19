@@ -1,0 +1,21 @@
+hr{
+    border: none;
+    color: red;
+    background-color: red;
+    height: 15px;
+}
+
+body{
+    text-align: center;
+}
+
+
+p{
+    color: blue;
+    font-family: "Arial";
+}
+
+
+div{
+    color: red;
+}
