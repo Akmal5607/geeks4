@@ -1,21 +1,24 @@
-hr{
+
+hr {
     border: none;
     color: red;
     background-color: red;
-    height: 15px;
+    height: 10px; /
 }
 
-body{
+
+body {
     text-align: center;
 }
 
 
-p{
-    color: blue;
+p {
+    color: darkblue;
     font-family: "Arial";
 }
 
 
-div{
+
+div {
     color: red;
 }
