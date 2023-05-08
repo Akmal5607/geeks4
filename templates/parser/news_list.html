@@ -2,22 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Phone_list_delete</title>
+    <title>News List</title>
 </head>
 <body>
-<h1>Выберите телефон для удаления</h1>
-<h2><a href="/phone_list/" class="btn btn-primary">На главную</a></h2>
-<ul>
-    {% for i in object_list %}
-    <li>
-        <a href="/phone_delete/{{i.id}}/delete/">{{i.title}}</a>
-    </li>
-    {% endfor %}
-</ul>
-<hr>
+<center>
+    <ol>
+        {% for i in object_list %}
+        <li>
+            <h1>{{i.title_name}}</h1>
+            <img src="{{i.image}}" alt="" width="400" height="300">
+            <button><a href="{{i.title_url}}">Перейти к новостям</a></button>
+        </li>
+        <hr>
+        {% endfor %}
+    </ol>
+
+</center>
+
 </body>
 </html>
-
 
 <style>
 

@@ -5,7 +5,9 @@ from django.views import generic
 from . import models, forms
 
 
+# Create your views here.
 
+# Не полная информация
 class PhoneListView(generic.ListView):
     template_name = 'phone_list.html'
     queryset = Phones.objects.all()
@@ -14,6 +16,7 @@ class PhoneListView(generic.ListView):
         return Phones.objects.all()
 
 
+# Подробная информация
 class PhoneDetailView(generic.DetailView):
     template_name = 'phone_detail.html'
 
@@ -22,7 +25,7 @@ class PhoneDetailView(generic.DetailView):
         return get_object_or_404(Phones, id=phone_id)
 
 
-
+# Добавить новый телефон
 class CreatePhoneView(generic.CreateView):
     template_name = 'crud/create_phone.html'
     form_class = ShowForm
@@ -34,7 +37,7 @@ class CreatePhoneView(generic.CreateView):
         return super(CreatePhoneView, self).form_valid(form=form)
 
 
-
+# Список телефонов для удаления
 class DeletePhoneListView(generic.ListView):
     template_name = 'crud/phone_list_delete.html'
     queryset = Phones.objects.all()
@@ -43,7 +46,7 @@ class DeletePhoneListView(generic.ListView):
         return Phones.objects.all()
 
 
-
+# удалить телефон  основная логика
 class DeletePhoneView(generic.DeleteView):
     template_name = 'crud/phone_delete.html'
     success_url = '/phone_delete_list/'
@@ -53,7 +56,7 @@ class DeletePhoneView(generic.DeleteView):
         return get_object_or_404(Phones, id=phone_id)
 
 
-
+# Список телефонов для изменения
 class UpdatePhoneListView(generic.ListView):
     template_name = 'crud/phone_list_update.html'
     queryset = Phones.objects.all()
@@ -62,7 +65,7 @@ class UpdatePhoneListView(generic.ListView):
         return Phones.objects.all()
 
 
-
+# Изменить телефон
 class UpdatePhoneView(generic.UpdateView):
     template_name = 'crud/phone_update.html'
     form_class = ShowForm
@@ -76,7 +79,7 @@ class UpdatePhoneView(generic.UpdateView):
         return super(UpdatePhoneView, self).form_valid(form=form)
 
 
-
+# Поиск телефонов
 class SearchView(generic.ListView):
     template_name = 'phone_list.html'
     context_object_name = 'phone'
@@ -91,7 +94,7 @@ class SearchView(generic.ListView):
         return context
 
 
-
+# для отзыва
 class CreateCommentView(generic.CreateView):
     """
     Добавление отзыва
@@ -99,7 +102,7 @@ class CreateCommentView(generic.CreateView):
     template_name = 'phone_detail.html'
     form_class = forms.CommentForm
     queryset = models.Reviews.objects.all()
-    success_url = '/'
+    success_url = '/phone_list/'
 
     def form_valid(self, form):
         print(form.cleaned_data)
